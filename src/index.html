@@ -34,95 +34,10 @@
 
 <body>
   <div id="mapwize"></div>
-  <div class='buttons'>
-    <button onclick="getAllLocales()">Get all locales (console)</button>
-    <button onclick="setLocale('fr')">Set locale FR</button>
-    <button onclick="setLocale('en')">Set locale EN</button>
-
-    <button onclick="getUnits()">Get all units (console)</button>
-    <button onclick="setMunit()">Set unit to meter</button>
-    <button onclick="setFunit()">Set unit to feet</button>
-
-    <button onclick="showDirectionUI()">DirectionUI</button>
-    <button onclick="showDefaultUI()">DefaultUI</button>
-
-    <button onclick="getModes()">Get all modes</button>
-    <button onclick="getMode()">Get current mode</button>
-    <button onclick="setDirectionMode()">SetMode</button>
-    <button onclick="setFrom()">SetFrom</button>
-    <button onclick="setTo()">SetTo</button>
-
-    <button onclick="getSelected()">Get selected place</button>
-    <button onclick="selectPlace()">selectPlace</button>
-    <button onclick="selectPlacelist()">selectPlacelist</button>
-
-    <button onclick="setUserLocation(3)">Set user location on mapwize</button>
-    <button onclick="setUserLocation(null)">Set user location without floor</button>
-
-    <button onclick="remove()">Kill the map</button>
-
-    <button onclick="createMap()">Create a map</button>
-    <button onclick="destroyMap()">Destroy the map</button>
-
-    <button onclick="setLocale('fr')">Set locale FR</button>
-    <button onclick="setLocale('en')">Set locale EN</button>
-  </div>
   <script>
 
     let mapInstance
-
-    function getAllLocales() {
-      console.log( mapInstance.getLocales() )
-    }
-    function setLocale( local ) {
-      mapInstance.setLocale( local )
-    }
-
-    function getUnits() {
-      console.log( mapInstance.getUnits() )
-    }
-    function setMunit() {
-      mapInstance.setUnit( 'm' )
-    }
-    function setFunit() {
-      mapInstance.setUnit( 'ft' )
-    }
-
-    function showDirectionUI() {
-      mapInstance.setDirectionMode()
-    }
-    function showDefaultUI() {
-      mapInstance.setSearchMode()
-    }
-    function getModes() {
-      console.log( mapInstance.getModes() )
-    }
-    function getMode() {
-      console.log( mapInstance.getMode() )
-    }
-    function setDirectionMode() {
-      mapInstance.setMode( '5e7a1d5fb5459e00166b5675' )
-    }
-
-    async function setFrom() {
-      let place = await MapwizeUI.Api.getPlace( '5cecfe6e3a98890016d6eff6' )
-      mapInstance.setFrom( { objectClass: 'place', ...place } )
-    }
-    async function setTo() {
-      let place = await MapwizeUI.Api.getPlace( '5cac6506af35300016a65929' )
-      mapInstance.setTo( { objectClass: 'place', ...place } )
-    }
-
-    function getSelected() {
-      console.log( mapInstance.getSelected() );
-    }
-    function selectPlace() {
-      mapInstance.setSelected( '5cecfe6e3a98890016d6eff6' )
-    }
-    function selectPlacelist() {
-      mapInstance.setSelected( '5728a351a3a26c0b0027d5cf' )
-    }
-
+    
     function setUserLocation( floor ) {
       mapInstance.setUserLocation( {
         latitude: 50.63262,
@@ -205,10 +120,7 @@
 
     window.onload = function () {
       var apiKey = 'MapwizeDevAPIKEY'
-      var mapwizePlaceId = '5d08d8a4efe1d20012809ee5'
-      var receptionPlaceId = '569f8d7cb4d7200b003c32a1'
       
-
       MapwizeUI.apiKey( apiKey )
 
       createMap()
