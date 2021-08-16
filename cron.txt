@@ -1,1 +1,1 @@
-cd /home/ubuntu/mapwize-ui-js && nohup npm run start > /home/ubuntu/mapwize.out 2>&1
+@reboot cd /home/ubuntu/mapwize-ui-js && nohup npm run start > /home/ubuntu/mapwize.out 2>&1
